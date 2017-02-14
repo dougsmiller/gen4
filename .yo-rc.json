@@ -1,0 +1,20 @@
+{
+  "generator-angm": {
+    "appName": "angmat2",
+    "angularCookies": true,
+    "angularAnimate": true,
+    "angularSanitize": true,
+    "angularMaterial": true,
+    "modules": [
+      {
+        "name": "part1"
+      }
+    ],
+    "menu": [
+      {
+        "link": "part1",
+        "title": "Part1"
+      }
+    ]
+  }
+}
