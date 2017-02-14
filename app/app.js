@@ -21,6 +21,7 @@
 		'ui.router',
 		'home',
 		'part1',
+		'btobhistogram',
 		'nvd3'
 	]);
 

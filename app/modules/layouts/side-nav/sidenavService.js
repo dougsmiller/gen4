@@ -23,7 +23,12 @@
 
 					{
 						link: 'part1',
-							name: 'Simple Pie Chart'
+							name: 'Pie Chart'
+					},
+
+					{
+						link: 'btobhistogram',
+							name: 'Back to Back Histogram'
 					},
 
 		  	];

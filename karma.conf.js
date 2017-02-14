@@ -35,6 +35,11 @@ module.exports = function (config) {
 			'app/modules/part1/part1Route.js',
 			'app/modules/part1/part1Service.js',
 			'app/modules/part1/part1-test.js',
+			'app/modules/btobhistogram/btobhistogramModule.js',
+			'app/modules/btobhistogram/btobhistogramCtrl.js',
+			'app/modules/btobhistogram/btobhistogramRoute.js',
+			'app/modules/btobhistogram/btobhistogramService.js',
+			'app/modules/btobhistogram/btobhistogram-test.js',
 		],
 
 		// Test results reporter to use

@@ -8,12 +8,19 @@
     "modules": [
       {
         "name": "part1"
+      },
+      {
+        "name": "btobhistogram"
       }
     ],
     "menu": [
       {
         "link": "part1",
         "title": "Part1"
+      },
+      {
+        "link": "btobhistogram",
+        "title": "Btobhistogram"
       }
     ]
   }

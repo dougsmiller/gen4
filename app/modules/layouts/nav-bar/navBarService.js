@@ -26,6 +26,11 @@
 							name: 'Part1'
 					},
 			    
+					{
+						link: 'btobhistogram',
+							name: 'Btobhistogram'
+					},
+			    
 		  	];
 
 			return {
