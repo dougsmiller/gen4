@@ -19,10 +19,12 @@
 		'ngAnimate',
 		'ngSanitize',
 		'ui.router',
+		'nvd3',
 		'home',
 		'part1',
 		'btobhistogram',
-		'nvd3'
+		'donut',
+		'donuts',
 	]);
 
 })();

@@ -31,6 +31,16 @@
 							name: 'Back to Back Histogram'
 					},
 
+					{
+						link: 'donut',
+							name: 'Donut'
+					},
+
+					{
+						link: 'donuts',
+							name: 'Sunburst'
+					},
+
 		  	];
 
 			return {

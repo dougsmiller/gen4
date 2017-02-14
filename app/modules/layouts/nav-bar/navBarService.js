@@ -31,6 +31,16 @@
 							name: 'Btobhistogram'
 					},
 			    
+					{
+						link: 'donut',
+							name: 'Donut'
+					},
+			    
+					{
+						link: 'donuts',
+							name: 'Donuts'
+					},
+			    
 		  	];
 
 			return {

@@ -1,6 +1,42 @@
 angular.module('angmat2').run(['$templateCache', function($templateCache) {
   'use strict';
 
+  $templateCache.put('app/modules/btobhistogram/btobhistogram.html',
+    "<div class=\"md-padding\" flex layout-sm=\"column\">\n" +
+    "    <md-card>\n" +
+    "        <md-card-content>\n" +
+    "            <h2 class=\"md-title\">Back to back histogram</h2>\n" +
+    "			<nvd3 options=\"vm.options\" data=\"vm.data\"></nvd3>\n" +
+    "        </md-card-content>\n" +
+    "    </md-card>\n" +
+    "</div>\n"
+  );
+
+
+  $templateCache.put('app/modules/donut/donut.html',
+    "<div class=\"md-padding\" flex layout-sm=\"column\">\n" +
+    "	<md-card>\n" +
+    "		<md-card-content>\n" +
+    "			<h2 class=\"md-title\">Rainbow</h2>\n" +
+    "			<nvd3 options=\"vm.options\" data=\"vm.data\"></nvd3>\n" +
+    "		</md-card-content>\n" +
+    "	</md-card>\n" +
+    "</div>\n"
+  );
+
+
+  $templateCache.put('app/modules/donuts/donuts.html',
+    "<div class=\"md-padding\" flex layout-sm=\"column\">\n" +
+    "	<md-card>\n" +
+    "		<md-card-content>\n" +
+    "			<h2 class=\"md-title\">Sunburst</h2>\n" +
+    "			<nvd3 options=\"vm.options\" data=\"vm.data\"></nvd3>\n" +
+    "		</md-card-content>\n" +
+    "	</md-card>\n" +
+    "	</diiv>\n"
+  );
+
+
   $templateCache.put('app/modules/home/dashboard.html',
     "<div class=\"md-padding\" flex layout-sm=\"column\">\n" +
     "    <md-card class=\"text-center\">\n" +
@@ -223,11 +259,13 @@ angular.module('angmat2').run(['$templateCache', function($templateCache) {
 
   $templateCache.put('app/modules/part1/part1.html',
     "<div class=\"md-padding\" flex layout-sm=\"column\">\n" +
-    "\n" +
-    "            <h2 class=\"md-title\">Content from: part1 Page</h2>\n" +
-    "			{{vm.test}} \"working\"\n" +
+    "	<md-card>\n" +
+    "		<md-card-content>\n" +
+    "			<h2 class=\"md-title\">Back to back histogram</h2>\n" +
     "			<nvd3 options=\"vm.options\" data=\"vm.data\"></nvd3>\n" +
-    "</div>\n"
+    "		</md-card-content>\n" +
+    "	</md-card>\n" +
+    "</div\n"
   );
 
 }]);

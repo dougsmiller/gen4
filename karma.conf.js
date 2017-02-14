@@ -40,6 +40,16 @@ module.exports = function (config) {
 			'app/modules/btobhistogram/btobhistogramRoute.js',
 			'app/modules/btobhistogram/btobhistogramService.js',
 			'app/modules/btobhistogram/btobhistogram-test.js',
+			'app/modules/donut/donutModule.js',
+			'app/modules/donut/donutCtrl.js',
+			'app/modules/donut/donutRoute.js',
+			'app/modules/donut/donutService.js',
+			'app/modules/donut/donut-test.js',
+			'app/modules/donuts/donutsModule.js',
+			'app/modules/donuts/donutsCtrl.js',
+			'app/modules/donuts/donutsRoute.js',
+			'app/modules/donuts/donutsService.js',
+			'app/modules/donuts/donuts-test.js',
 		],
 
 		// Test results reporter to use
