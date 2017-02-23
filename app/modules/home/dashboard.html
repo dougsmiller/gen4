@@ -2,14 +2,18 @@
 	.cardAsLink {
 		cursor: pointer;
 	}
+	span:focus {
+		outline: none;
+		border: 0;
+	}
 
 </style>
 
 <div class="md-padding" flex layout-sm="column">
 
 <div layout="horizontal">
-<!--	<span ng-click="vm.displayToast()" flex="25" style="cursor:pointer"> -->
-	<md-card    ng-mouseenter="hover = 'md-whiteframe-z3';"  ng-mouseleave="hover = '';" ng-class="hover cardAsLink ">
+	<span ng-click="vm.displayToast()" flex="25" style="cursor:pointer">
+	<md-card   ng-mouseenter="hover = 'md-whiteframe-z3';"  ng-mouseleave="hover = '';" ng-class="hover">
 		<md-card-content>
 
 			<md-card-header-text>
@@ -23,7 +27,7 @@
 		</md-card-content>
 	</md-card>
 	</md-card>
-<!--	</span> -->
+</span>
 	<md-card flex="25">
 		<md-card-content>
 
