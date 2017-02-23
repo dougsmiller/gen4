@@ -28,6 +28,7 @@
 		vm.title = "Hello, angmat2!";
 		vm.version = "1.0.0";
 		vm.listFeatures = homeService.getFeaturesList();
+		/*
 		vm.displayToast = function(event){
 			console.info(event);
 			var confirm = $mdDialog.confirm()
@@ -43,6 +44,32 @@
 				vm.status = 'You decided to keep your record.';
 			});
 			};
+*/
+
+
+		vm.displayToast = function(event) {
+			$mdDialog.show({
+				clickOutsideToClose: true,
+				preserveScope: true,
+				template: '<md-dialog>' +
+				'  <md-dialog-content>' +
+				'		<md-card>'+
+				'           <md-card_contents>' +
+				'     			Welcome to TutorialsPoint.com' +
+				'           </md-card_contents>' +
+				'  </md-dialog-content>' +
+				'</md-dialog>'
+				});
+		};
+
+
+
+
+
+
+
+
+
 		vm.mapObject = {
 			scope: 'world',
 			options: {
