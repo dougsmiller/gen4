@@ -13,7 +13,7 @@
 		.module('angmat2')
 		.controller('HomeCtrl', Home);
 
-	Home.$inject = ['homeService'];
+	Home.$inject = ['homeService',$mdDialog];
 
 	/*
 	* recommend
@@ -21,13 +21,28 @@
 	* and bindable members up top.
 	*/
 
-	function Home(homeService) {
+	function Home(homeService,$mdDialog,$log) {
 		/*jshint validthis: true */
 		var vm = this;
+		vm.status = "";
 		vm.title = "Hello, angmat2!";
 		vm.version = "1.0.0";
 		vm.listFeatures = homeService.getFeaturesList();
-		vm.displayToast = function(){alert("Hello")};
+		vm.displayToast = function(event){
+			console.info(event);
+			var confirm = $mdDialog.confirm()
+				.title('Are you sure to delete the record?')
+				.textContent('Record will be deleted permanently.')
+				.ariaLabel('TutorialsPoint.com')
+				.targetEvent(event)
+				.ok('Yes')
+				.cancel('No');
+			$mdDialog.show(confirm).then(function() {
+				vm.status = 'Record deleted successfully!';
+			}, function() {
+				vm.status = 'You decided to keep your record.';
+			});
+			};
 		vm.mapObject = {
 			scope: 'world',
 			options: {
