@@ -1,19 +1,55 @@
+<style>
+	.cardAsLink {
+		cursor: pointer;
+	}
+
+</style>
+
 <div class="md-padding" flex layout-sm="column">
-    <md-card class="text-center">
-        <md-card-content>
-            <h1>{{ vm.title }}</h1>
-            <h3>{{ vm.version }}</h3>
-            <p>This is a template for a simple home screen website. Use it as a starting point to create something more unique.</p>
-            <code>app/modules/home/home.html</code>
-            <br>
-            <p><a href="http://www.github.com/newaeonweb/generator-angm" class="btn btn-primary" role="button">Learn more »</a></p>
-            <md-divider class="margin-top-20"></md-divider>
-            <h1 class="margin-top-50">Features</h1>
-            <ul>
-                <li class=" text-center" ng-repeat="item in vm.listFeatures">
-                    <p><ng-md-icon icon="check"></ng-md-icon> {{item.feature}}</p>
-                </li>
-            </ul>
-        </md-card-content>
-    </md-card>
+
+<div layout="horizontal">
+<!--	<span ng-click="vm.displayToast()" flex="25" style="cursor:pointer"> -->
+	<md-card    ng-mouseenter="hover = 'md-whiteframe-z3';"  ng-mouseleave="hover = '';" ng-class="hover cardAsLink ">
+		<md-card-content>
+
+			<md-card-header-text>
+				<span class="md-title">Operational NREN</span>
+			</md-card-header-text>
+
+			<p>(info within Compendium)</p>
+<!--
+			<md-button ng-click="vm.displayToast()" ng-show="vm.butShow[0]">View</md-button>
+			-->
+		</md-card-content>
+	</md-card>
+	</md-card>
+<!--	</span> -->
+	<md-card flex="25">
+		<md-card-content>
+
+			<md-button class="md-primary md-raised">Raised and Accent Button</md-button>
+		</md-card-content>
+	</md-card>
+	<md-card flex="25">
+		<md-card-content>
+
+			<md-button class="md-primary md-raised">Raised and Accent Button</md-button>
+		</md-card-content>
+	</md-card>
+	<md-card flex="25">
+		<md-card-content>
+
+			<md-button class="md-primary md-raised">Raised and Accent Button</md-button>
+		</md-card-content>
+	</md-card>
 </div>
+	<md-card>
+			<md-card-content>
+
+				<datamap
+					map="vm.mapObject"
+				>
+				</datamap>
+			</md-card-content>
+	</md-card>m
+

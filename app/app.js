@@ -25,6 +25,7 @@
 		'btobhistogram',
 		'donut',
 		'donuts',
+		'datamaps',
 	]);
 
 })();
