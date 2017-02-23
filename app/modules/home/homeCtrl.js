@@ -12,14 +12,27 @@
 	angular
 		.module('angmat2')
 		.controller('HomeCtrl', Home);
+	angular
+		.module('angmat2')
+		.controller('dialogCtrl', dialogCtrl);
 
-	Home.$inject = ['homeService',$mdDialog];
 
+
+	Home.$inject = ['homeService','$mdDialog'];
+	dialogCtrl.$inject = ['$mdDialog'];
 	/*
 	* recommend
 	* Using function declarations
 	* and bindable members up top.
 	*/
+
+
+	function dialogCtrl($mdDialog){
+
+		var vm = this;
+
+	}
+
 
 	function Home(homeService,$mdDialog,$log) {
 		/*jshint validthis: true */
@@ -50,15 +63,9 @@
 		vm.displayToast = function(event) {
 			$mdDialog.show({
 				clickOutsideToClose: true,
+				controller: 'dialogCtrl as vm',
 				preserveScope: true,
-				template: '<md-dialog>' +
-				'  <md-dialog-content>' +
-				'		<md-card>'+
-				'           <md-card_contents>' +
-				'     			Welcome to TutorialsPoint.com' +
-				'           </md-card_contents>' +
-				'  </md-dialog-content>' +
-				'</md-dialog>'
+				templateUrl: "./templateHTML.html"
 				});
 		};
 

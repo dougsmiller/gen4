@@ -38,29 +38,73 @@ angular.module('angmat2').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('app/modules/home/dashboard.html',
+    "<style>\n" +
+    "	.cardAsLink {\n" +
+    "		cursor: pointer;\n" +
+    "	}\n" +
+    "	span:focus {\n" +
+    "		outline: none;\n" +
+    "		border: 0;\n" +
+    "	}\n" +
+    "\n" +
+    "</style>\n" +
+    "\n" +
+    "{{vm.status}}\n" +
+    "\n" +
+    "\n" +
     "<div class=\"md-padding\" flex layout-sm=\"column\">\n" +
-    "    <md-card class=\"text-center\">\n" +
-    "        <md-card-content>\n" +
-    "            <h1>{{ vm.title }}</h1>\n" +
-    "            <h3>{{ vm.version }}</h3>\n" +
-    "            <p>This is a template for a simple home screen website. Use it as a starting point to create something more unique.</p>\n" +
-    "            <code>app/modules/home/home.html</code>\n" +
-    "            <br>\n" +
-    "            <p><a href=\"http://www.github.com/newaeonweb/generator-angm\" class=\"btn btn-primary\" role=\"button\">Learn more »</a></p>\n" +
-    "            <md-divider class=\"margin-top-20\"></md-divider>\n" +
-    "            <h1 class=\"margin-top-50\">Features</h1>\n" +
-    "            <ul>\n" +
-    "                <li class=\" text-center\" ng-repeat=\"item in vm.listFeatures\">\n" +
-    "                    <p><ng-md-icon icon=\"check\"></ng-md-icon> {{item.feature}}</p>\n" +
-    "                </li>\n" +
-    "            </ul>\n" +
-    "        </md-card-content>\n" +
-    "    </md-card>\n" +
-    "</div>\n"
+    "\n" +
+    "<div layout=\"horizontal\">\n" +
+    "	<span ng-click=\"vm.displayToast()\" flex=\"25\" style=\"cursor:pointer\">\n" +
+    "	<md-card   ng-mouseenter=\"hover = 'md-whiteframe-z3';\"  ng-mouseleave=\"hover = '';\" ng-class=\"hover\">\n" +
+    "		<md-card-content>\n" +
+    "\n" +
+    "			<md-card-header-text>\n" +
+    "				<span class=\"md-title\">Operational NREN</span>\n" +
+    "			</md-card-header-text>\n" +
+    "\n" +
+    "			<p>(info within Compendium)</p>\n" +
+    "<!--\n" +
+    "			<md-button ng-click=\"vm.displayToast()\" ng-show=\"vm.butShow[0]\">View</md-button>\n" +
+    "			-->\n" +
+    "		</md-card-content>\n" +
+    "	</md-card>\n" +
+    "	</md-card>\n" +
+    "</span>\n" +
+    "	<md-card flex=\"25\">\n" +
+    "		<md-card-content>\n" +
+    "\n" +
+    "			<md-button class=\"md-primary md-raised\">Raised and Accent Button</md-button>\n" +
+    "		</md-card-content>\n" +
+    "	</md-card>\n" +
+    "	<md-card flex=\"25\">\n" +
+    "		<md-card-content>\n" +
+    "\n" +
+    "			<md-button class=\"md-primary md-raised\">Raised and Accent Button</md-button>\n" +
+    "		</md-card-content>\n" +
+    "	</md-card>\n" +
+    "	<md-card flex=\"25\">\n" +
+    "		<md-card-content>\n" +
+    "\n" +
+    "			<md-button class=\"md-primary md-raised\">Raised and Accent Button</md-button>\n" +
+    "		</md-card-content>\n" +
+    "	</md-card>\n" +
+    "</div>\n" +
+    "	<md-card>\n" +
+    "			<md-card-content>\n" +
+    "\n" +
+    "				<datamap\n" +
+    "					map=\"vm.mapObject\"\n" +
+    "				>\n" +
+    "				</datamap>\n" +
+    "			</md-card-content>\n" +
+    "	</md-card>m\n" +
+    "\n"
   );
 
 
   $templateCache.put('app/modules/home/home.html',
+    "\n" +
     "<md-sidenav layout=\"column\" class=\"md-sidenav-left md-whiteframe-z2\" md-component-id=\"left\" md-is-locked-open=\"$mdMedia('gt-md')\">\n" +
     "    <div ng-controller=\"SidenavCtrl as vm\" ng-cloak>\n" +
     "        <md-toolbar class=\"md-tall md-hue-2\">\n" +
@@ -154,6 +198,56 @@ angular.module('angmat2').run(['$templateCache', function($templateCache) {
     "        <div ui-view></div>\n" +
     "    </md-content>\n" +
     "</div>\n"
+  );
+
+
+  $templateCache.put('app/modules/home/templateHTML.html',
+    "\n" +
+    "    <md-dialog aria-label=\"Mango (Fruit)\" ng-cloak>\n" +
+    "        <form>\n" +
+    "            <md-toolbar>\n" +
+    "                <div class=\"md-toolbar-tools\">\n" +
+    "                    <h2>Mango (Fruit)</h2>\n" +
+    "                    <span flex></span>\n" +
+    "                    <md-button class=\"md-icon-button\" ng-click=\"dialog.cancel()\">\n" +
+    "                        <md-icon md-svg-src=\"img/icons/ic_close_24px.svg\" aria-label=\"Close dialog\"></md-icon>\n" +
+    "                    </md-button>\n" +
+    "                </div>\n" +
+    "            </md-toolbar>\n" +
+    "\n" +
+    "            <md-dialog-content>\n" +
+    "                <div class=\"md-dialog-content\">\n" +
+    "                    <h2>Using .md-dialog-content class that sets the padding as the spec</h2>\n" +
+    "                    <p>\n" +
+    "                        The mango is a juicy stone fruit belonging to the genus Mangifera, consisting of numerous tropical fruiting trees, cultivated mostly for edible fruit. The majority of these species are found in nature as wild mangoes. They all belong to the flowering plant family Anacardiaceae. The mango is native to South and Southeast Asia, from where it has been distributed worldwide to become one of the most cultivated fruits in the tropics.\n" +
+    "                    </p>\n" +
+    "\n" +
+    "                    <img style=\"margin: auto; max-width: 100%;\" alt=\"Lush mango tree\" src=\"img/mangues.jpg\">\n" +
+    "\n" +
+    "                    <p>\n" +
+    "                        The highest concentration of Mangifera genus is in the western part of Malesia (Sumatra, Java and Borneo) and in Burma and India. While other Mangifera species (e.g. horse mango, M. foetida) are also grown on a more localized basis, Mangifera indica&mdash;the \"common mango\" or \"Indian mango\"&mdash;is the only mango tree commonly cultivated in many tropical and subtropical regions.\n" +
+    "                    </p>\n" +
+    "                    <p>\n" +
+    "                        It originated in Indian subcontinent (present day India and Pakistan) and Burma. It is the national fruit of India, Pakistan, and the Philippines, and the national tree of Bangladesh. In several cultures, its fruit and leaves are ritually used as floral decorations at weddings, public celebrations, and religious ceremonies.\n" +
+    "                    </p>\n" +
+    "                </div>\n" +
+    "            </md-dialog-content>\n" +
+    "\n" +
+    "            <md-dialog-actions layout=\"row\">\n" +
+    "                <md-button href=\"http://en.wikipedia.org/wiki/Mango\" target=\"_blank\" md-autofocus>\n" +
+    "                    More on Wikipedia\n" +
+    "                </md-button>\n" +
+    "                <span flex></span>\n" +
+    "                <md-button ng-click=\"dialog.answer('not useful')\">\n" +
+    "                    Not Useful\n" +
+    "                </md-button>\n" +
+    "                <md-button ng-click=\"dialog.answer('useful')\">\n" +
+    "                    Useful\n" +
+    "                </md-button>\n" +
+    "            </md-dialog-actions>\n" +
+    "        </form>\n" +
+    "    </md-dialog>\n" +
+    "\n"
   );
 
 
@@ -261,7 +355,7 @@ angular.module('angmat2').run(['$templateCache', function($templateCache) {
     "<div class=\"md-padding\" flex layout-sm=\"column\">\n" +
     "	<md-card>\n" +
     "		<md-card-content>\n" +
-    "			<h2 class=\"md-title\">Back to back histogram</h2>\n" +
+    "			<h2 class=\"md-title\">Pie Chart</h2>\n" +
     "			<nvd3 options=\"vm.options\" data=\"vm.data\"></nvd3>\n" +
     "		</md-card-content>\n" +
     "	</md-card>\n" +
