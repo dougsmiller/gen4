@@ -30,6 +30,11 @@
 	function dialogCtrl($mdDialog){
 
 		var vm = this;
+		vm.answer = function(answer){
+			alert(answer);
+			$mdDialog.hide();
+
+		}
 
 	}
 
@@ -60,7 +65,7 @@
 */
 
 
-		vm.displayToast = function(event) {
+		vm.displayDialog = function(event) {
 			$mdDialog.show({
 				clickOutsideToClose: true,
 				controller: 'dialogCtrl as vm',
