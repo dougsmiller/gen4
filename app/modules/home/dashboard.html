@@ -10,11 +10,43 @@
 </style>
 
 {{vm.status}}
+<md-card>
+	<md-card-content>
+		<ang-accordion>
+			<collapsible-item item-title="Some Heading 1">
+				<div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
+						Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales
+						pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies
+						mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum
+						enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida.
+						Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a
+						facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac
+						lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim
+						venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit.
+						Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec
+						orci posuere, nec luctus mauris semper.</p>
+				</div>
+			</collapsible-item><collapsible-item item-title="Some Heading 2">
+				<div>
+					<p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec
+						magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis.
+						Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras
+						ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit
+						tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed
+						nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+				</div>
+			</collapsible-item>
+		</ang-accordion>
+	</md-card-content>
+</md-card>
 
 
 <div class="md-padding" flex layout-sm="column">
 
 <div layout="horizontal">
+
+
 	<span ng-click="vm.displayDialog()" flex="25" style="cursor:pointer">
 	<md-card   ng-mouseenter="hover = 'md-whiteframe-z3';"  ng-mouseleave="hover = '';" ng-class="hover">
 		<md-card-content>
@@ -58,5 +90,5 @@
 				>
 				</datamap>
 			</md-card-content>
-	</md-card>m
+	</md-card>
 
