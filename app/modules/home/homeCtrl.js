@@ -1,4 +1,4 @@
-(function () {
+ (function () {
 	'use strict';
 
 	/**
@@ -12,14 +12,32 @@
 	angular
 		.module('angmat2')
 		.controller('HomeCtrl', Home);
+	angular
+		.module('angmat2')
+		.controller('dialogCtrl', dialogCtrl);
 
-	Home.$inject = ['homeService',$mdDialog];
 
+
+	Home.$inject = ['homeService','$mdDialog'];
+	dialogCtrl.$inject = ['$mdDialog'];
 	/*
 	* recommend
 	* Using function declarations
 	* and bindable members up top.
 	*/
+
+
+	function dialogCtrl($mdDialog){
+
+		var vm = this;
+		vm.answer = function(answer){
+			alert(answer);
+			$mdDialog.hide();
+
+		}
+
+	}
+
 
 	function Home(homeService,$mdDialog,$log) {
 		/*jshint validthis: true */
@@ -28,6 +46,7 @@
 		vm.title = "Hello, angmat2!";
 		vm.version = "1.0.0";
 		vm.listFeatures = homeService.getFeaturesList();
+		/*
 		vm.displayToast = function(event){
 			console.info(event);
 			var confirm = $mdDialog.confirm()
@@ -43,6 +62,26 @@
 				vm.status = 'You decided to keep your record.';
 			});
 			};
+*/
+
+
+		vm.displayDialog = function(event) {
+			$mdDialog.show({
+				clickOutsideToClose: true,
+				controller: 'dialogCtrl as vm',
+				preserveScope: true,
+				templateUrl: "./templateHTML.html"
+				});
+		};
+
+
+
+
+
+
+
+
+
 		vm.mapObject = {
 			scope: 'world',
 			options: {
