@@ -26,6 +26,7 @@
 		'donut',
 		'donuts',
 		'datamaps',
+        'angAccordion'
 	]);
 
 })();
