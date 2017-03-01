@@ -38,29 +38,103 @@ angular.module('angmat2').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('app/modules/home/dashboard.html',
+    "<style>\n" +
+    "	.cardAsLink {\n" +
+    "		cursor: pointer;\n" +
+    "	}\n" +
+    "	span:focus {\n" +
+    "		outline: none;\n" +
+    "		border: 0;\n" +
+    "	}\n" +
+    "\n" +
+    "</style>\n" +
+    "\n" +
+    "{{vm.status}}\n" +
+    "<md-card>\n" +
+    "	<md-card-content>\n" +
+    "		<ang-accordion>\n" +
+    "			<collapsible-item item-title=\"Some Heading 1\">\n" +
+    "				<div>\n" +
+    "					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.\n" +
+    "						Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales\n" +
+    "						pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies\n" +
+    "						mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum\n" +
+    "						enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida.\n" +
+    "						Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a\n" +
+    "						facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac\n" +
+    "						lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim\n" +
+    "						venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit.\n" +
+    "						Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec\n" +
+    "						orci posuere, nec luctus mauris semper.</p>\n" +
+    "				</div>\n" +
+    "			</collapsible-item><collapsible-item item-title=\"Some Heading 2\">\n" +
+    "			<div>\n" +
+    "				<p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec\n" +
+    "					magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis.\n" +
+    "					Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras\n" +
+    "					ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit\n" +
+    "					tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed\n" +
+    "					nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>\n" +
+    "			</div>\n" +
+    "		</collapsible-item>\n" +
+    "		</ang-accordion>\n" +
+    "	</md-card-content>\n" +
+    "</md-card>\n" +
+    "\n" +
+    "\n" +
     "<div class=\"md-padding\" flex layout-sm=\"column\">\n" +
-    "    <md-card class=\"text-center\">\n" +
-    "        <md-card-content>\n" +
-    "            <h1>{{ vm.title }}</h1>\n" +
-    "            <h3>{{ vm.version }}</h3>\n" +
-    "            <p>This is a template for a simple home screen website. Use it as a starting point to create something more unique.</p>\n" +
-    "            <code>app/modules/home/home.html</code>\n" +
-    "            <br>\n" +
-    "            <p><a href=\"http://www.github.com/newaeonweb/generator-angm\" class=\"btn btn-primary\" role=\"button\">Learn more »</a></p>\n" +
-    "            <md-divider class=\"margin-top-20\"></md-divider>\n" +
-    "            <h1 class=\"margin-top-50\">Features</h1>\n" +
-    "            <ul>\n" +
-    "                <li class=\" text-center\" ng-repeat=\"item in vm.listFeatures\">\n" +
-    "                    <p><ng-md-icon icon=\"check\"></ng-md-icon> {{item.feature}}</p>\n" +
-    "                </li>\n" +
-    "            </ul>\n" +
-    "        </md-card-content>\n" +
-    "    </md-card>\n" +
-    "</div>\n"
+    "\n" +
+    "<div layout=\"horizontal\">\n" +
+    "	<span ng-click=\"vm.displayDialog()\" flex=\"25\" style=\"cursor:pointer\">\n" +
+    "	<md-card   ng-mouseenter=\"hover = 'md-whiteframe-z3';\"  ng-mouseleave=\"hover = '';\" ng-class=\"hover\">\n" +
+    "		<md-card-content>\n" +
+    "\n" +
+    "			<md-card-header-text>\n" +
+    "				<span class=\"md-title\">Operational NREN</span>\n" +
+    "			</md-card-header-text>\n" +
+    "\n" +
+    "			<p>(info within Compendium)</p>\n" +
+    "<!--\n" +
+    "			<md-button ng-click=\"vm.displayToast()\" ng-show=\"vm.butShow[0]\">View</md-button>\n" +
+    "			-->\n" +
+    "		</md-card-content>\n" +
+    "	</md-card>\n" +
+    "	</md-card>\n" +
+    "</span>\n" +
+    "	<md-card flex=\"25\">\n" +
+    "		<md-card-content>\n" +
+    "\n" +
+    "			<md-button class=\"md-primary md-raised\">Raised and Accent Button</md-button>\n" +
+    "		</md-card-content>\n" +
+    "	</md-card>\n" +
+    "	<md-card flex=\"25\">\n" +
+    "		<md-card-content>\n" +
+    "\n" +
+    "			<md-button class=\"md-primary md-raised\">Raised and Accent Button</md-button>\n" +
+    "		</md-card-content>\n" +
+    "	</md-card>\n" +
+    "	<md-card flex=\"25\">\n" +
+    "		<md-card-content>\n" +
+    "\n" +
+    "			<md-button class=\"md-primary md-raised\">Raised and Accent Button</md-button>\n" +
+    "		</md-card-content>\n" +
+    "	</md-card>\n" +
+    "</div>\n" +
+    "	<md-card>\n" +
+    "			<md-card-content>\n" +
+    "\n" +
+    "				<datamap\n" +
+    "					map=\"vm.mapObject\"\n" +
+    "				>\n" +
+    "				</datamap>\n" +
+    "			</md-card-content>\n" +
+    "	</md-card>m\n" +
+    "\n"
   );
 
 
   $templateCache.put('app/modules/home/home.html',
+    "\n" +
     "<md-sidenav layout=\"column\" class=\"md-sidenav-left md-whiteframe-z2\" md-component-id=\"left\" md-is-locked-open=\"$mdMedia('gt-md')\">\n" +
     "    <div ng-controller=\"SidenavCtrl as vm\" ng-cloak>\n" +
     "        <md-toolbar class=\"md-tall md-hue-2\">\n" +
@@ -261,7 +335,7 @@ angular.module('angmat2').run(['$templateCache', function($templateCache) {
     "<div class=\"md-padding\" flex layout-sm=\"column\">\n" +
     "	<md-card>\n" +
     "		<md-card-content>\n" +
-    "			<h2 class=\"md-title\">Back to back histogram</h2>\n" +
+    "			<h2 class=\"md-title\">Pie Chart</h2>\n" +
     "			<nvd3 options=\"vm.options\" data=\"vm.data\"></nvd3>\n" +
     "		</md-card-content>\n" +
     "	</md-card>\n" +

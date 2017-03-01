@@ -1,5 +1,5 @@
 /*!
-* angmat2 - v0.0.1 - MIT LICENSE 2017-02-14. 
+* angmat2 - v0.0.1 - MIT LICENSE 2017-02-27. 
 * @author Angmodular
 */
 (function() {
@@ -29,6 +29,8 @@
 		'btobhistogram',
 		'donut',
 		'donuts',
+		'datamaps',
+		'angAccordion'
 	]);
 
 })();
@@ -423,83 +425,84 @@ angular.module('part1')
 	'use strict';
 
 	/**
-	* @ngdoc function
-	* @name app.controller:donutCtrl
-	* @description
-	* # donutCtrl
-	* Controller of the app
-	*/
+	 * @ngdoc function
+	 * @name app.controller:donutCtrl
+	 * @description
+	 * # donutsCtrl
+	 * Controller of the app
+	 */
 
-  	angular
+	angular
 		.module('donut')
 		.controller('DonutCtrl', Donut);
 
-		Donut.$inject = [];
+	Donut.$inject = [];
 
-		/*
-		* recommend
-		* Using function declarations
-		* and bindable members up top.
-		*/
+	/*
+	 * recommend
+	 * Using function declarations
+	 * and bindable members up top.
+	 */
+
 	function Donut() {
 		/*jshint validthis: true */
 		var vm = this;
 		vm.options = {
-		chart: {
-			type: 'pieChart',
-			height: 450,
-			donut: true,
-			x: function(d){return d.key;},
-			y: function(d){return d.y;},
-			showLabels: true,
+			chart: {
+				type: 'pieChart',
+				height: 450,
+				donut: true,
+				x: function(d){return d.key;},
+				y: function(d){return d.y;},
+				showLabels: true,
 
-			pie: {
-				startAngle: function(d) { return d.startAngle/2 -Math.PI/2 },
-				endAngle: function(d) { return d.endAngle/2 -Math.PI/2 }
-			},
-			duration: 500,
-			legend: {
-				margin: {
-					top: 5,
-					right: 140,
-					bottom: 5,
-					left: 0
+				pie: {
+					startAngle: function(d) { return d.startAngle/2 -Math.PI/2 },
+					endAngle: function(d) { return d.endAngle/2 -Math.PI/2 }
+				},
+				duration: 500,
+				legend: {
+					margin: {
+						top: 5,
+						right: 140,
+						bottom: 5,
+						left: 0
+					}
 				}
 			}
-		}
-	};
+		};
 
-	vm.data = [
-		{
-			key: "One",
-			y: 5
-		},
-		{
-			key: "Two",
-			y: 2
-		},
-		{
-			key: "Three",
-			y: 9
-		},
-		{
-			key: "Four",
-			y: 7
-		},
-		{
-			key: "Five",
-			y: 4
-		},
-		{
-			key: "Six",
-			y: 3
-		},
-		{
-			key: "Seven",
-			y: 0.5
-		}
-	];
-
+		vm.data = [
+			{
+				key: "One",
+				y: 5
+			},
+			{
+				key: "Two",
+				y: 2
+			},
+			{
+				key: "Three",
+				y: 9
+			},
+			{
+				key: "Four",
+				y: 7
+			},
+			{
+				key: "Five",
+				y: 4
+			},
+			{
+				key: "Six",
+				y: 3
+			},
+			{
+				key: "Seven",
+				y: .5
+			}
+		];
+	}
 
 })();
 
@@ -923,7 +926,7 @@ angular.module('part1')
 
 })();
 
-(function () {
+ (function () {
 	'use strict';
 
 	/**
@@ -937,21 +940,96 @@ angular.module('part1')
 	angular
 		.module('angmat2')
 		.controller('HomeCtrl', Home);
+	angular
+		.module('angmat2')
+		.controller('dialogCtrl', dialogCtrl);
 
-	Home.$inject = ['homeService'];
 
+
+	Home.$inject = ['homeService','$mdDialog'];
+	dialogCtrl.$inject = ['$mdDialog'];
 	/*
 	* recommend
 	* Using function declarations
 	* and bindable members up top.
 	*/
 
-	function Home(homeService) {
+
+	function dialogCtrl($mdDialog){
+
+		var vm = this;
+		vm.answer = function(answer){
+			alert(answer);
+			$mdDialog.hide();
+
+		}
+
+	}
+
+
+	function Home(homeService,$mdDialog,$log) {
 		/*jshint validthis: true */
 		var vm = this;
+		vm.status = "";
 		vm.title = "Hello, angmat2!";
 		vm.version = "1.0.0";
 		vm.listFeatures = homeService.getFeaturesList();
+		/*
+		vm.displayToast = function(event){
+			console.info(event);
+			var confirm = $mdDialog.confirm()
+				.title('Are you sure to delete the record?')
+				.textContent('Record will be deleted permanently.')
+				.ariaLabel('TutorialsPoint.com')
+				.targetEvent(event)
+				.ok('Yes')
+				.cancel('No');
+			$mdDialog.show(confirm).then(function() {
+				vm.status = 'Record deleted successfully!';
+			}, function() {
+				vm.status = 'You decided to keep your record.';
+			});
+			};
+*/
+
+
+		vm.displayDialog = function(event) {
+			$mdDialog.show({
+				clickOutsideToClose: true,
+				controller: 'dialogCtrl as vm',
+				preserveScope: true,
+				templateUrl: "./templateHTML.html"
+				});
+		};
+
+
+
+
+
+
+
+
+
+		vm.mapObject = {
+			scope: 'world',
+			options: {
+				width: 1110,
+				legendHeight: 60 // optionally set the padding for the legend
+			},
+			geographyConfig: {
+				highlighBorderColor: '#EAA9A8',
+				highlighBorderWidth: 2
+			},
+			fills: {
+				'HIGH': '#CC4731',
+				'MEDIUM': '#306596',
+				'LOW': '#667FAF',
+				'defaultFill': '#DDDDDD'
+			},
+			data: {
+
+			},
+		}
 
 	}
 
